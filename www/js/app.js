@@ -1,13 +1,15 @@
-// TODO: This should be separated into its respective files.
+// App Setup
 
 App = Ember.Application.create();
 
-App.Router.map(function() {
-  // put your routes here
-});
+// API Config
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
-  }
-});
+App.apiBaseURL = 'http://dummy-grapi.herokuapp.com';
+
+App.apiPaths = {
+  'places': '/foo/bar'
+}
+
+App.apiPathFor = function(pathName) {
+  return App.apiBaseURL + App.apiPaths[pathName];
+}
